@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Void Client — клиент для Minecraft</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0a1a;--surface:#1a1430;--line:#34294f;--text:#ece8f7;--muted:#9d93b8;--accent:#a78bfa;--accent-ink:#140d2b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 Inter,system-ui,sans-serif;min-height:100vh}
+main{max-width:960px;margin:0 auto;padding:56px 24px 40px}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;min-height:62vh}
+h1{font:800 clamp(44px,9vw,92px)/.95 Unbounded,system-ui,sans-serif;margin:0 0 20px;letter-spacing:-.03em}
+.lead{color:var(--muted);max-width:44ch;margin:0 0 32px}
+.btn{font:600 18px Unbounded,system-ui,sans-serif;background:var(--accent);color:var(--accent-ink);border:0;border-radius:6px;padding:18px 32px;cursor:pointer}
+.btn:hover{background:#c4b0ff}
+:focus-visible{outline:3px solid var(--text);outline-offset:3px}
+.cube{aspect-ratio:1;display:grid;grid-template-columns:repeat(8,1fr);gap:3px;max-width:340px;justify-self:center;width:100%}
+.cube i{background:var(--surface);border-radius:2px}
+.cube i.a{background:var(--accent)}.cube i.b{background:#6d4fd1}.cube i.c{background:#2c2150}.cube i.v{background:#05030c}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;border-top:1px solid var(--line);padding-top:32px;margin-top:40px}
+.facts h2{font:600 17px Unbounded,system-ui,sans-serif;margin:0 0 6px}
+.facts p{margin:0;color:var(--muted);font-size:15px}
+dialog{background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:28px;width:min(440px,calc(100% - 32px))}
+dialog::backdrop{background:rgba(5,3,12,.75)}
+dialog h2{font:600 22px Unbounded,system-ui,sans-serif;margin:0 0 6px}
+dialog p{color:var(--muted);margin:0 0 20px;font-size:15px}
+.opts{display:grid;gap:10px}
+.opts a{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;background:var(--bg);border:1px solid var(--line);border-radius:6px;color:var(--text);text-decoration:none;font-weight:500}
+.opts a:hover{border-color:var(--accent)}
+.opts small{color:var(--muted);font-weight:400}
+.close{margin-top:18px;background:none;border:0;color:var(--muted);font:inherit;cursor:pointer;padding:6px 0}
+@media(max-width:720px){.hero{grid-template-columns:1fr;min-height:0}.cube{max-width:220px;order:-1}.facts{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:no-preference){.cube i.v{animation:pulse 3s ease-in-out infinite}@keyframes pulse{50%{background:#1b1338}}}
+</style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div>
+      <h1>Void Client</h1>
+      <p class="lead">Клиент для Minecraft. Скачайте, запустите установщик и заходите в игру.</p>
+      <button class="btn" id="open">Скачать</button>
+    </div>
+    <div class="cube" id="cube" aria-hidden="true"></div>
+  </section>
+  <section class="facts">
+    <div><h2>Быстрая установка</h2><p>Один файл — запустили и готово.</p></div>
+    <div><h2>Три системы</h2><p>Windows, macOS и Linux.</p></div>
+    <div><h2>Нужна Java</h2><p>Для запуска нужна установленная Java.</p></div>
+  </section>
+</main>
+
+<dialog id="dlg" aria-labelledby="t">
+  <h2 id="t">Выберите версию</h2>
+  <p>Скачается установщик. Запустите его после загрузки.</p>
+  <div class="opts">
+    <a href="#" data-os="win">Windows <small>.exe</small></a>
+    <a href="#" data-os="mac">macOS <small>.dmg</small></a>
+    <a href="#" data-os="linux">Linux <small>.jar</small></a>
+  </div>
+  <button class="close" id="close">Закрыть</button>
+</dialog>
+
+<script>
+// Замените ссылки на свои файлы
+var LINKS={win:"#",mac:"#",linux:"#"};
+var dlg=document.getElementById("dlg");
+document.querySelectorAll("[data-os]").forEach(function(a){a.href=LINKS[a.dataset.os];if(LINKS[a.dataset.os]!=="#")a.setAttribute("download","")});
+document.getElementById("open").onclick=function(){dlg.showModal()};
+document.getElementById("close").onclick=function(){dlg.close()};
+dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close()});
+var m=[
+"c c c b b c c c","c b b a a b b c","b a a a a a a b","b a v v v v a b",
+"b a v v v v a b","b a a a a a a b","c b b a a b b c","c c c b b c c c"];
+document.getElementById("cube").innerHTML=m.join(" ").split(" ").map(function(k){return '<i class="'+k+'"></i>'}).join("");
+</script>
+</body>
+</html>
