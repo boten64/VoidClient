@@ -24,6 +24,8 @@ h1{font:800 clamp(44px,9vw,92px)/.95 Unbounded,system-ui,sans-serif;margin:0 0 2
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;border-top:1px solid var(--line);padding-top:32px;margin-top:40px}
 .facts h2{font:600 17px Unbounded,system-ui,sans-serif;margin:0 0 6px}
 .facts p{margin:0;color:var(--muted);font-size:15px}
+.footer{text-align:center;color:var(--muted);font-size:15px;margin-top:48px;padding-top:24px;border-top:1px solid var(--line)}
+.footer a{color:var(--accent)}
 dialog{background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:28px;width:min(440px,calc(100% - 32px))}
 dialog::backdrop{background:rgba(5,3,12,.75)}
 dialog h2{font:600 22px Unbounded,system-ui,sans-serif;margin:0 0 6px}
@@ -51,6 +53,7 @@ dialog p{color:var(--muted);margin:0 0 20px;font-size:15px}
     <div><h2>Три системы</h2><p>Windows, macOS и Linux.</p></div>
     <div><h2>Нужна Java</h2><p>Для запуска нужна установленная Java.</p></div>
   </section>
+  <p class="footer">Нашли баги? Пишите <a href="https://t.me/boten64qq" target="_blank" rel="noopener">t.me/boten64qq</a></p>
 </main>
 
 <dialog id="dlg" aria-labelledby="t">
