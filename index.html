@@ -68,13 +68,13 @@ dialog p{color:var(--muted);margin:0 0 20px;font-size:15px}
 
 <script>
 var FILE="razrabotka_void-client-0_1_0.jar";
+var NAME="void-client-0_1_0.jar";
 var LINKS={win:FILE,mac:FILE,linux:FILE};
 var dlg=document.getElementById("dlg");
-document.querySelectorAll("[data-os]").forEach(function(a){a.href=LINKS[a.dataset.os];a.setAttribute("download","")});
+document.querySelectorAll("[data-os]").forEach(function(a){a.href=LINKS[a.dataset.os];a.setAttribute("download",NAME)});
 document.getElementById("open").onclick=function(){dlg.showModal()};
 document.getElementById("close").onclick=function(){dlg.close()};
 dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close()});
 </script>
 </body>
 </html>
-
