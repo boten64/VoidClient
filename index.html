@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -60,21 +59,22 @@ dialog p{color:var(--muted);margin:0 0 20px;font-size:15px}
   <h2 id="t">Выберите версию</h2>
   <p>Скачается установщик. Запустите его после загрузки.</p>
   <div class="opts">
-    <a href="#" data-os="win">Windows <small>.exe</small></a>
-    <a href="#" data-os="mac">macOS <small>.dmg</small></a>
+    <a href="#" data-os="win">Windows <small>.jar</small></a>
+    <a href="#" data-os="mac">macOS <small>.jar</small></a>
     <a href="#" data-os="linux">Linux <small>.jar</small></a>
   </div>
   <button class="close" id="close">Закрыть</button>
 </dialog>
 
 <script>
-// Замените ссылки на свои файлы
-var LINKS={win:"#",mac:"#",linux:"#"};
+var FILE="razrabotka_void-client-0_1_0.jar";
+var LINKS={win:FILE,mac:FILE,linux:FILE};
 var dlg=document.getElementById("dlg");
-document.querySelectorAll("[data-os]").forEach(function(a){a.href=LINKS[a.dataset.os];if(LINKS[a.dataset.os]!=="#")a.setAttribute("download","")});
+document.querySelectorAll("[data-os]").forEach(function(a){a.href=LINKS[a.dataset.os];a.setAttribute("download","")});
 document.getElementById("open").onclick=function(){dlg.showModal()};
 document.getElementById("close").onclick=function(){dlg.close()};
 dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close()});
 </script>
 </body>
 </html>
+
