@@ -59,16 +59,16 @@ dialog p{color:var(--muted);margin:0 0 20px;font-size:15px}
   <h2 id="t">Выберите версию</h2>
   <p>Скачается установщик. Запустите его после загрузки.</p>
   <div class="opts">
-    <a href="#" data-os="win">Windows <small>.jar</small></a>
-    <a href="#" data-os="mac">macOS <small>.jar</small></a>
-    <a href="#" data-os="linux">Linux <small>.jar</small></a>
+    <a href="#" data-os="win">Windows <small>.exe</small></a>
+    <a href="#" data-os="mac">macOS <small>.exe</small></a>
+    <a href="#" data-os="linux">Linux <small>.exe</small></a>
   </div>
   <button class="close" id="close">Закрыть</button>
 </dialog>
 
 <script>
-var FILE="void-client-0_1_0.jar";
-var NAME="void-client-0_1_0.jar";
+var FILE="Void%20Client.exe";
+var NAME="Void-Client.exe";
 var LINKS={win:FILE,mac:FILE,linux:FILE};
 var dlg=document.getElementById("dlg");
 document.querySelectorAll("[data-os]").forEach(function(a){a.href=LINKS[a.dataset.os];a.setAttribute("download",NAME)});
