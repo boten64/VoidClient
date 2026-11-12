@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Void Client — клиент для Minecraft</title>
-<link rel="icon" href="void-client-avatar.png">
+<title>Крокс — клиент для Minecraft</title>
+<link rel="icon" href="avatar_letter_k_violet_minimal.png">
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0d0a1a;--surface:#1a1430;--line:#34294f;--text:#ece8f7;--muted:#9d93b8;--accent:#a78bfa;--accent-ink:#140d2b;
@@ -41,11 +41,11 @@ dialog p{color:var(--muted);margin:0 0 20px;font-size:15px}
 <main>
   <section class="hero">
     <div>
-      <h1>Void Client</h1>
+      <h1>Крокс</h1>
       <p class="lead">Клиент для Minecraft. Скачайте, запустите установщик и заходите в игру.</p>
       <button class="btn" id="open">Скачать</button>
     </div>
-    <img class="avatar" src="void-client-avatar.png" alt="Void Client">
+    <img class="avatar" src="avatar_letter_k_violet_minimal.png" alt="Крокс">
   </section>
   <section class="facts">
     <div><h2>Быстрая установка</h2><p>Один файл — запустили и готово.</p></div>
@@ -68,7 +68,7 @@ dialog p{color:var(--muted);margin:0 0 20px;font-size:15px}
 
 <script>
 var FILE="Void%20Client.exe";
-var NAME="Void-Client.exe";
+var NAME="Krox.exe";
 var LINKS={win:FILE,mac:FILE,linux:FILE};
 var dlg=document.getElementById("dlg");
 document.querySelectorAll("[data-os]").forEach(function(a){a.href=LINKS[a.dataset.os];a.setAttribute("download",NAME)});
